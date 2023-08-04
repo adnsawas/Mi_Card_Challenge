@@ -1,0 +1,17 @@
+{
+  "@_COMMON": {},
+  "helloWorld": "Hello World!",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "homeScreen": "Home Screen",
+  "pageNotFound": "Page not found",
+  "close": "Close",
+  "noData": "No data",
+  "refresh": "Refresh",
+
+  "@_SIGN_IN_SCREEN": {},
+  "signIn": "Sign In",
+  "username": "Username",
+  "password": "Password"
+}

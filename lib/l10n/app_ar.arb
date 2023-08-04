@@ -1,0 +1,14 @@
+{
+  "@_COMMON": {},
+  "helloWorld": "مرحبا بالعالم!",
+  "homeScreen": "الشاشة الرئيسية",
+  "pageNotFound": "الصفحة غير موجودة",
+  "close": "إغلاق",
+  "noData": "لا توجد بيانات",
+  "refresh": "تحديث",
+  
+  "@_SIGN_IN_SCREEN": {},
+  "username": "اسم المستخدم",
+  "password": "الرمز السري",
+  "signIn": "تسجيل الدخول"
+}
