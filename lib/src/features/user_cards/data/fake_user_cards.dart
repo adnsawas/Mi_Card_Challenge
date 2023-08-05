@@ -14,7 +14,13 @@ final List<UserCard> fakeUserCards = [
   UserCard(
       id: '2',
       templateId: 'template_2',
-      data: PersonDetails(name: 'Adnan Sawas', jobTitle: 'Mobile Developer')),
+      data: PersonDetails(
+        name: 'Adnan Sawas',
+        jobTitle: 'Mobile Developer',
+        company: 'Aramco',
+        mobileNumber: '+966568208802',
+        email: 'adnsawas@gmail.com',
+      )),
   UserCard(
       id: '3',
       templateId: 'template_1',
