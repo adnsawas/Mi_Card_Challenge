@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mi_card/src/constants/gaps.dart';
-import 'package:mi_card/src/routing/go_router.dart';
+import 'package:mi_card/src/core/routing/go_router.dart';
 import 'package:mi_card/src/utils/localization_extension.dart';
 
 /// Simple not found screen used for 404 errors (page not found on web)

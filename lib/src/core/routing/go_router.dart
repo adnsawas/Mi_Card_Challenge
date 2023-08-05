@@ -1,12 +1,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mi_card/src/common_widgets/playground_screen.dart';
 import 'package:mi_card/src/features/auth/data/auth_repository.dart';
 import 'package:mi_card/src/features/auth/presentation/sign_in_screen.dart';
 import 'package:mi_card/src/features/splash/presentation/splash_screen.dart';
 import 'package:mi_card/src/features/user_cards/presentaion/cards_screen.dart';
-import 'package:mi_card/src/routing/router_refresh_stream.dart';
+import 'package:mi_card/src/core/routing/router_refresh_stream.dart';
 
-enum AppRoute { splash, signIn, cards, createCard }
+enum AppRoute { splash, signIn, cards, createCard, playground }
 
 final goRouterProvider = Provider<GoRouter>((ref) {
   // Watch current user state so we update the router when user logs in and out
@@ -43,10 +44,16 @@ final goRouterProvider = Provider<GoRouter>((ref) {
         builder: (context, state) => const SignInScreen(),
       ),
       GoRoute(
-        path: '/cards',
-        name: AppRoute.cards.name,
-        builder: (context, state) => const CardsScreen(),
-      ),
+          path: '/cards',
+          name: AppRoute.cards.name,
+          builder: (context, state) => const CardsScreen(),
+          routes: [
+            GoRoute(
+              path: AppRoute.playground.name,
+              name: AppRoute.playground.name,
+              builder: (context, state) => const PlayGroundScreen(),
+            ),
+          ]),
     ],
   );
 });

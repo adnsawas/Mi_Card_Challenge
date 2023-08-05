@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mi_card/src/features/auth/data/auth_repository.dart';
-import 'package:mi_card/src/routing/go_router.dart';
+import 'package:mi_card/src/core/routing/go_router.dart';
 
 class SplashScreenControllerNotifier extends AutoDisposeAsyncNotifier<void> {
   @override

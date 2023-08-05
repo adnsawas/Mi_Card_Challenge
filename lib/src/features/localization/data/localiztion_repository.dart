@@ -10,7 +10,7 @@ class LocalizationNotifer extends Notifier<Locale> {
     // depending on what is available from shared preferences
     final sharedPreferences = ref.read(sharedPreferencesProvider);
     final savedLocale = sharedPreferences.getString('locale');
-    return Locale(savedLocale ?? 'ar');
+    return Locale(savedLocale ?? 'en');
   }
 
   Future<void> toggleLanguage() async {

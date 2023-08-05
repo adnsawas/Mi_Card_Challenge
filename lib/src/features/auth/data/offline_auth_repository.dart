@@ -16,7 +16,6 @@ class OfflineAuthRepository extends AuthRepository {
 
   @override
   Future<void> signOut() async {
-    print('signing out');
     await Future.delayed(const Duration(seconds: 1));
     user.value = null;
   }
