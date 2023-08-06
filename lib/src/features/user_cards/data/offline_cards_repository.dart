@@ -10,7 +10,8 @@ class OfflineCardsRepository implements CardsRepository {
   Future<void> createUserCard(UserCard userCard) async {
     await Future.delayed(const Duration(seconds: 1));
     final updatedUserCards = _userCards.value.toList();
-    updatedUserCards.add(userCard);
+    updatedUserCards
+        .add(userCard.copyWith(id: DateTime.now().toIso8601String()));
     _userCards.value = updatedUserCards;
   }
 

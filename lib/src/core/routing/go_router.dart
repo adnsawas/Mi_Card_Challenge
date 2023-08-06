@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:mi_card/src/common_widgets/playground_screen.dart';
 import 'package:mi_card/src/features/auth/data/auth_repository.dart';
 import 'package:mi_card/src/features/auth/presentation/sign_in_screen.dart';
+import 'package:mi_card/src/features/card_design/presentation/card_design_screen/card_design_screen.dart';
 import 'package:mi_card/src/features/splash/presentation/splash_screen.dart';
 import 'package:mi_card/src/features/user_cards/presentaion/cards_screen.dart';
 import 'package:mi_card/src/core/routing/router_refresh_stream.dart';
@@ -52,6 +53,11 @@ final goRouterProvider = Provider<GoRouter>((ref) {
               path: AppRoute.playground.name,
               name: AppRoute.playground.name,
               builder: (context, state) => const PlayGroundScreen(),
+            ),
+            GoRoute(
+              path: AppRoute.createCard.name,
+              name: AppRoute.createCard.name,
+              builder: (context, state) => const CardDesignScreen(),
             ),
           ]),
     ],
