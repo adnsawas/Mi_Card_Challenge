@@ -18,35 +18,36 @@ class _CardDesignStep3State extends ConsumerState<CardDesignStep3> {
   @override
   Widget build(BuildContext context) {
     final cardDesign = ref.watch(cardDesignScreenControllerProvider).value!;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Expanded(child: Builder(
-          builder: (context) {
-            final cardTemplate =
-                switch (cardTemplatesMapping[cardDesign.selectedTemplate]) {
-              CardTemplate1 => CardTemplate1(cardDesign.personDetails!),
-              CardTemplate2 => CardTemplate2(cardDesign.personDetails!),
-              _ => null
-            };
-            return SizedBox(
-              // height: 200,
-              width: MediaQuery.of(context).size.width * 1,
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: FittedBox(
-                  child: cardTemplate,
-                ),
-              ),
-            );
-          },
-        )),
-        ElevatedButton(
-            onPressed: () => ref
-                .read(cardDesignScreenControllerProvider.notifier)
-                .saveCard(),
-            child: Text('Save Buisness Card')),
-      ],
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(child: Builder(
+              builder: (context) {
+                final cardTemplate =
+                    switch (cardTemplatesMapping[cardDesign.selectedTemplate]) {
+                  CardTemplate1 => CardTemplate1(cardDesign.personDetails!),
+                  CardTemplate2 => CardTemplate2(cardDesign.personDetails!),
+                  _ => null
+                };
+                return Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: FittedBox(
+                    child: cardTemplate,
+                  ),
+                );
+              },
+            )),
+            ElevatedButton(
+                onPressed: () => ref
+                    .read(cardDesignScreenControllerProvider.notifier)
+                    .saveCard(),
+                child: Text('Save Buisness Card')),
+          ],
+        ),
+      ),
     );
   }
 }
