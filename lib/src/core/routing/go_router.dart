@@ -5,10 +5,11 @@ import 'package:mi_card/src/features/auth/data/auth_repository.dart';
 import 'package:mi_card/src/features/auth/presentation/sign_in_screen.dart';
 import 'package:mi_card/src/features/card_design/presentation/card_design_screen/card_design_screen.dart';
 import 'package:mi_card/src/features/splash/presentation/splash_screen.dart';
+import 'package:mi_card/src/features/user_cards/presentaion/card_details_screen.dart';
 import 'package:mi_card/src/features/user_cards/presentaion/cards_screen.dart';
 import 'package:mi_card/src/core/routing/router_refresh_stream.dart';
 
-enum AppRoute { splash, signIn, cards, createCard, playground }
+enum AppRoute { splash, signIn, cards, cardDetails, createCard, playground }
 
 final goRouterProvider = Provider<GoRouter>((ref) {
   // Watch current user state so we update the router when user logs in and out
@@ -58,6 +59,14 @@ final goRouterProvider = Provider<GoRouter>((ref) {
               path: AppRoute.createCard.name,
               name: AppRoute.createCard.name,
               builder: (context, state) => const CardDesignScreen(),
+            ),
+            GoRoute(
+              path: ':userCardId',
+              name: AppRoute.cardDetails.name,
+              builder: (context, state) {
+                final userCardId = state.pathParameters['userCardId'];
+                return CardDetailsScreen(userCardId: userCardId ?? '00');
+              },
             ),
           ]),
     ],

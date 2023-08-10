@@ -47,31 +47,36 @@ class CardsScreen extends ConsumerWidget {
 
                   return cardTemplate == null
                       ? Text('no card template found')
-                      : Card(
-                          child: Stack(
-                            children: [
-                              SizedBox(
-                                height: 200,
-                                width: MediaQuery.of(context).size.width * 1,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(16.0),
-                                  child: FittedBox(
-                                    child: cardTemplate,
+                      : GestureDetector(
+                          onTap: () => context.goNamed(
+                              AppRoute.cardDetails.name,
+                              pathParameters: {'userCardId': card.id}),
+                          child: Card(
+                            child: Stack(
+                              children: [
+                                SizedBox(
+                                  height: 200,
+                                  width: MediaQuery.of(context).size.width * 1,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(16.0),
+                                    child: FittedBox(
+                                      child: cardTemplate,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional.topStart,
-                                child: IconButton(
-                                    onPressed: () => ref
-                                        .read(cardsRepositoryProvider)
-                                        .deleteUserCard(cards[index].id),
-                                    icon: const Icon(
-                                      Icons.delete,
-                                      color: Colors.red,
-                                    )),
-                              ),
-                            ],
+                                Align(
+                                  alignment: AlignmentDirectional.topStart,
+                                  child: IconButton(
+                                      onPressed: () => ref
+                                          .read(cardsRepositoryProvider)
+                                          .deleteUserCard(cards[index].id),
+                                      icon: const Icon(
+                                        Icons.delete,
+                                        color: Colors.red,
+                                      )),
+                                ),
+                              ],
+                            ),
                           ),
                         );
                 },

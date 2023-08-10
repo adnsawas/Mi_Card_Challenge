@@ -24,3 +24,10 @@ final userCardsProvider = StreamProvider<List<UserCard>>((ref) {
   final cardsRepository = ref.watch(cardsRepositoryProvider);
   return cardsRepository.watchUserCards();
 });
+
+final userCardProvider = Provider.family<UserCard, String>((ref, cardId) {
+  return ref
+      .watch(userCardsProvider)
+      .value!
+      .singleWhere((card) => card.id == cardId);
+});

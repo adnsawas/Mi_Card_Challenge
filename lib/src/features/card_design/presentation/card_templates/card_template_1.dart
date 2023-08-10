@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:mi_card/src/constants/cards_shadow.dart';
 import 'package:mi_card/src/constants/gaps.dart';
 import 'package:mi_card/src/features/card_design/presentation/card_templates/card_template.dart';
 
 class CardTemplate1 extends CardTemplate {
   const CardTemplate1(
     super.personDetails, {
+    super.withShadow,
     super.key,
   });
 
@@ -16,9 +18,7 @@ class CardTemplate1 extends CardTemplate {
       clipBehavior: Clip.antiAliasWithSaveLayer,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(color: Colors.grey[800]!, blurRadius: 12, spreadRadius: 1)
-        ],
+        boxShadow: withShadow ? cardShadows : null,
         color: Colors.indigo[100],
       ),
       child: Row(

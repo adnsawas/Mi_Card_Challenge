@@ -19,6 +19,9 @@ dependencies:
   rxdart: ^0.27.7
   shared_preferences: ^2.2.0
   url_strategy: ^0.2.0
+  share_plus: ^7.1.0
+  path_provider: ^2.1.0
+  screenshot: ^2.1.0
 
 dev_dependencies:
   flutter_test:
